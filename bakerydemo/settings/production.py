@@ -89,16 +89,17 @@ if ELASTICSEARCH_ENDPOINT:
 # https://warehouse.python.org/project/whitenoise/
 
 MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
-    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-    AWS_AUTO_CREATE_BUCKET = True
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_AUTO_CREATE_BUCKET = True
 
-    INSTALLED_APPS.append('storages')
-    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+INSTALLED_APPS.append('storages')
+MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 if 'GS_BUCKET_NAME' in os.environ:
     GS_BUCKET_NAME = os.getenv('GS_BUCKET_NAME')
