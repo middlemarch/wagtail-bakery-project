@@ -76,6 +76,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'corsheaders',
+
+    'captcha',
+    'wagtailcaptcha',
 ]
 
 SITE_ID = 1
@@ -211,3 +214,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True
+
+#ReCaptcha
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY', '')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY', '')
+NOCAPTCHA = True
