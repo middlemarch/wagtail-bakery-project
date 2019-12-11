@@ -123,8 +123,12 @@ WSGI_APPLICATION = 'bakerydemo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'bakerydemodb')
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bakerydemodbps',
+        'USER': os.environ.get('BAKERY_DEMO_DB_USER', ''),
+        'PASSWORD': os.environ.get('BAKERY_DEMO_DB_PASSWORD', ''),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
