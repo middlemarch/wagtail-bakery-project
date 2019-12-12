@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.conf import settings
-from django.contrib import admin
+from captcha_admin import admin
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls

@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'captcha',
+    'captcha_admin',
     'wagtailcaptcha',
 ]
 
