@@ -23,6 +23,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Redirect all requests to HTTPS
 SECURE_SSL_REDIRECT = os.getenv('DJANGO_SECURE_SSL_REDIRECT', 'off') == 'on'
 
+# Avoid cookie leak during initial HTTP connection
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 # Accept all hostnames, since we don't know in advance which hostname will be used for any given Heroku instance.
 # IMPORTANT: Set this to a real hostname when using this in production!
 # See https://docs.djangoproject.com/en/1.10/ref/settings/#allowed-hosts
