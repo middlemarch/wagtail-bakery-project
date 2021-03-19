@@ -8,7 +8,7 @@ certifi==2019.11.28
 chardet==3.0.4
 defusedxml==0.6.0
 dj-database-url==0.4.1
-Django==2.2.8
+Django==2.2.18
 django-allauth==0.40.0
 django-cache-url==2.0.0
 django-captcha-admin==0.2
