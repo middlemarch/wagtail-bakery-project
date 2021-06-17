@@ -52,7 +52,7 @@ sqlparse==0.3.0
 Unidecode==1.1.1
 urllib3==1.25.7
 uWSGI==2.0.18
-wagtail==2.7
+wagtail==2.11.8
 wagtail-django-recaptcha==1.0
 wagtailfontawesome==1.1.4
 webencodings==0.5.1
